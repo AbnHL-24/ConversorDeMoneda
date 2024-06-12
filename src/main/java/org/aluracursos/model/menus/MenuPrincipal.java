@@ -5,14 +5,16 @@ import org.aluracursos.model.monedas.MonedasPorPais;
 import java.util.Scanner;
 
 public class MenuPrincipal {
+    Scanner entrada = new Scanner(System.in);
     String codigoDeMonedaOrigen;
     String codigoDeMonedaDestino;
     int opcionDeMonedaOrigen;
     int opcionDeMonedaDestino;
+    int montoAConvertir;
 
     public void menúPrincipal() {
         System.out.println("*********************************************");
-        System.out.println("Sea bienvenid@ al conversor de monenedas.");
+        System.out.println("Sea bienvenid@ al conversor de monedas.");
         System.out.println();
         obtenerMonedaOrigen();
         System.out.println();
@@ -22,11 +24,12 @@ public class MenuPrincipal {
     }
 
     private void obtenerMontoAConvertir() {
-
+        System.out.println("Ingrese el valor que deseas convertir:");
+        montoAConvertir = Integer.parseInt(entrada.nextLine());
+        //TODO agregar el resultado de la conversion de monedas.
     }
 
     private void obtenerMonedaDestino() {
-        Scanner entrada = new Scanner(System.in);
         boolean repetir;
         do {
             System.out.println("Por favor, digite el numero de la moneda destino.");
