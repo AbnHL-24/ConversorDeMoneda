@@ -16,20 +16,26 @@ public class MenuPrincipal {
     int opcionDeMonedaOrigen;
     int opcionDeMonedaDestino;
     double montoAConvertir;
+    boolean repetirLoop = true;
 
     /**
      * Se encarga de dar el mensaje de bienvenida del programa y realizar el loop infinito hasta que el usuario
      * escoja la opción de salir.
      */
     public void menuPrincipal() {
-        System.out.println("*********************************************");
-        System.out.println("Sea bienvenid@ al conversor de monedas.");
-        System.out.println();
-        obtenerMonedaOrigen();
-        System.out.println();
-        obtenerMonedaDestino();
-        System.out.println();
-        obtenerMontoAConvertir();
+        //El loop parece infinito, pero este se acaba al escoger la opción de salir gracias a un System.exit(0).
+        while (repetirLoop) {
+            System.out.println("*********************************************");
+            System.out.println("Sea bienveníd@ al conversor de monedas.");
+            System.out.println();
+            obtenerMonedaOrigen();
+            System.out.println();
+            obtenerMonedaDestino();
+            System.out.println();
+            obtenerMontoAConvertir();
+            System.out.println();
+            System.out.println();
+        }
     }
 
     /**
@@ -74,6 +80,7 @@ public class MenuPrincipal {
                     break;
                 case 6:
                     System.out.println("Gracias por usar nuestro conversor de monedas.");
+                    repetirLoop = false;
                     System.exit(0);
                 default:
                     System.out.println("ERROR, ingrese una opción valida.");
@@ -112,6 +119,7 @@ public class MenuPrincipal {
                     break;
                 case 6:
                     System.out.println("Gracias por usar nuestro conversor de monedas.");
+                    repetirLoop = false;
                     System.exit(0);
                 default:
                     System.out.println("ERROR, ingrese una opción valida.");
