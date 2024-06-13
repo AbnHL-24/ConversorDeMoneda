@@ -1,5 +1,6 @@
 package org.aluracursos.model.menus;
 
+import org.aluracursos.model.conexionAPI.ConversorDeValores;
 import org.aluracursos.model.monedas.MonedasPorPais;
 
 import java.util.Scanner;
@@ -10,7 +11,7 @@ public class MenuPrincipal {
     String codigoDeMonedaDestino;
     int opcionDeMonedaOrigen;
     int opcionDeMonedaDestino;
-    int montoAConvertir;
+    double montoAConvertir;
 
     public void menúPrincipal() {
         System.out.println("*********************************************");
@@ -25,8 +26,11 @@ public class MenuPrincipal {
 
     private void obtenerMontoAConvertir() {
         System.out.println("Ingrese el valor que deseas convertir:");
-        montoAConvertir = Integer.parseInt(entrada.nextLine());
+        montoAConvertir = Double.parseDouble(entrada.nextLine());
         //TODO agregar el resultado de la conversion de monedas.
+        ConversorDeValores conversor = new ConversorDeValores();
+        double montoConvertido = conversor.valorConvertido(codigoDeMonedaOrigen,codigoDeMonedaDestino, montoAConvertir);
+        System.out.printf("El valor %f [%s] corresponde al valor final de =>> %f [%s]%n", montoAConvertir, codigoDeMonedaOrigen, montoConvertido, codigoDeMonedaDestino);
     }
 
     private void obtenerMonedaDestino() {
