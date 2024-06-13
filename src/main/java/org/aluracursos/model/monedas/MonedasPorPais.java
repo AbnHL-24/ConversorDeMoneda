@@ -5,7 +5,7 @@ package org.aluracursos.model.monedas;
  * fácil de recordar que el nombre de la moneda o su código. Tiene el formato, código de la moneda, nombre de la
  * moneda y país de la moneda, esto para coincidir con la documentación de ExchangeRate-API, ya que es la API
  * que se utilizará en este proyecto.
- * Para más información vea: https://www.exchangerate-api.com/docs/supported-currencies
+ * Para más información vea: <a href="https://www.exchangerate-api.com/docs/supported-currencies">...</a>
  */
 public enum MonedasPorPais {
     /*

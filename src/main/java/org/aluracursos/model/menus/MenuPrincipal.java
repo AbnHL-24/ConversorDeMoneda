@@ -5,6 +5,10 @@ import org.aluracursos.model.monedas.MonedasPorPais;
 
 import java.util.Scanner;
 
+/**
+ * La clase MenuPrincipal se encarga de imprimir el menú de la aplicación y utiliza la clase ConversorDeValores
+ * para realizar el proceso de la conversion de la moneda escogida por el usuario.
+ */
 public class MenuPrincipal {
     Scanner entrada = new Scanner(System.in);
     String codigoDeMonedaOrigen;
@@ -13,7 +17,11 @@ public class MenuPrincipal {
     int opcionDeMonedaDestino;
     double montoAConvertir;
 
-    public void menúPrincipal() {
+    /**
+     * Se encarga de dar el mensaje de bienvenida del programa y realizar el loop infinito hasta que el usuario
+     * escoja la opción de salir.
+     */
+    public void menuPrincipal() {
         System.out.println("*********************************************");
         System.out.println("Sea bienvenid@ al conversor de monedas.");
         System.out.println();
@@ -24,6 +32,11 @@ public class MenuPrincipal {
         obtenerMontoAConvertir();
     }
 
+    /**
+     * Se encarga de la parte del menú para obtener el monto a convertir. Imprime las instrucciones así como realizar
+     * la conversión e imprimir la nueva información.
+     * @see ConversorDeValores
+     */
     private void obtenerMontoAConvertir() {
         System.out.println("Ingrese el valor que deseas convertir:");
         montoAConvertir = Double.parseDouble(entrada.nextLine());
@@ -33,6 +46,9 @@ public class MenuPrincipal {
         System.out.printf("El valor %f [%s] corresponde al valor final de =>> %f [%s]%n", montoAConvertir, codigoDeMonedaOrigen, montoConvertido, codigoDeMonedaDestino);
     }
 
+    /**
+     * Se encarga de la parte del menú que solicita al usuario que escoja la moneda destino.
+     */
     private void obtenerMonedaDestino() {
         boolean repetir;
         do {
@@ -67,6 +83,9 @@ public class MenuPrincipal {
         while (repetir);
     }
 
+    /**
+     * Se encarga de la parte del menú que solicita al usuario que escoja la moneda origen.
+     */
     private void obtenerMonedaOrigen() {
         Scanner entrada = new Scanner(System.in);
         boolean repetir;
@@ -102,6 +121,9 @@ public class MenuPrincipal {
         while (repetir);
     }
 
+    /**
+     * Se encarga de imprimir la lista de todas las monedas.
+     */
     public void listaDeMonedas() {
         imprimirMonedaYPais(1,MonedasPorPais.ARGENTINA);
         imprimirMonedaYPais(2,MonedasPorPais.BRASIL);
@@ -111,6 +133,12 @@ public class MenuPrincipal {
         System.out.println("6). Salir");
     }
 
+    /**
+     * Se encarga de imprimir una moneda como opción para el menú, recíbe un número ordinal, y una Enum Moneda.
+     * @param numeroOrdinal és el número ordinal a imprimír.
+     * @param pais és un Enum Moneda correspondiente a la moneda que se desea imprimir.
+     * @see MonedasPorPais
+     */
     public void imprimirMonedaYPais(int numeroOrdinal, MonedasPorPais pais) {
         //
         System.out.println(numeroOrdinal + "). " + pais.getNombreDeLaMoneda());

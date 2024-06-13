@@ -27,6 +27,8 @@ public class ConversorDeValores {
      * @param codigoDeMonedaDestino és el código de la moneda destino.
      * @param montoAConvertir és el monto en la moneda origen.
      * @return és el monot en la moneda destino.
+     * @see Gson
+     * @see TasaDeCambio
      */
     public double valorConvertido(String codigoDeMonedaOrigen, String codigoDeMonedaDestino, double montoAConvertir) {
         double valorConvertido = 0;
@@ -63,18 +65,5 @@ public class ConversorDeValores {
         }
 
         return valorConvertido;
-    }
-
-    /**
-     * Este método solo se utiliza para qué, en el caso de que lo que se ingrese en el valor de montoAConvertir
-     * sea de tipo int, este sea parseado a double y con ello asegurarnos de que no pueda existir un error
-     * producto de ingresar un entero sin decimales.
-     * @param codigoDeMonedaOrigen és el código de la moneda origen.
-     * @param codigoDeMonedaDestino és el código de la moneda destino.
-     * @param montoAConvertir és el monto en la moneda origen, en este método es int y se parsea a double.
-     * @return és el monot en la moneda destino.
-     */
-    public double valorConvertido(String codigoDeMonedaOrigen, String codigoDeMonedaDestino, int montoAConvertir) {
-        return valorConvertido(codigoDeMonedaOrigen, codigoDeMonedaDestino, Double.parseDouble(String.valueOf(montoAConvertir)));
     }
 }
